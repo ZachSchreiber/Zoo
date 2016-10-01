@@ -8,16 +8,16 @@ Animal.prototype = {
     makeAbility: function(steve) {
         switch (steve) {
             case "Lion":
-                ability = "Roars";
+                ability = "Roaring";
                 break;
             case "Penquin":
-                ability = "Waddles";
+                ability = "Waddling";
                 break;
             case "Zombeaver":
-                ability = "Eats Brains";
+                ability = "Eating Brains";
                 break;
             default:
-                ability = "Eats Food";
+                ability = "Eating Food";
                 break;
         }
         return ability;
@@ -37,7 +37,7 @@ Animal.prototype = {
                         offspring = "1 cute little chick";
                         break;
                     case "Zombeaver":
-                        offspring = "1 Zombeaver/Human hybrid";
+                        offspring = "1 Zombeaver/Human hybrid Zombaby";
                         break;
                     default:
                         offspring = "No Offspring";
@@ -50,8 +50,8 @@ Animal.prototype = {
         return offspring;
     },
 
-    toString: function() {
-        var makeString = "A " + this.age + " years old " + this.sex + " " + this.species + " with " + this.offspring + ".";
+    makeString: function(birthYear, sex, species, ability, offspring) {
+        var makeString =   "This " + birthYear + " year old " + sex + " " + species + " enjoys " + ability + ", and has " + offspring + ".";
         return makeString;
     },
 
@@ -65,13 +65,13 @@ function Animal(species, sex, birthYear, offspring, stringMade) {
         age: Animal.prototype.getAge(birthYear),
         ability: Animal.prototype.makeAbility(species),
         offspring: Animal.prototype.makeOffspring(sex, species),
-        stringMade: Animal.prototype.toString(),
+        stringMade: Animal.prototype.makeString(Animal.prototype.getAge(birthYear), sex, species, ability, Animal.prototype.makeOffspring(sex, species)),
     };
 
 }
 
 var Sally = new Animal("Zombeaver", "female", 1950);
-var Bill = new Animal("lion", "male", 2006);
+var Bill = new Animal("Lion", "male", 2006);
 var Carlton = new Animal("Penquin", "female", 1975);
 
 console.log(Sally);
