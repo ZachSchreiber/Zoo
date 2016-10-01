@@ -24,7 +24,9 @@ Animal.prototype = {
     },
     makeOffspring: function(sex, species) {
         var randomNumber = Math.random() >= 0.5;
-        if (sex == "female") {
+        if (sex == "male") {
+            offspring = "No offspring";
+        } else if (sex == "female") {
             if (randomNumber === true) {
                 switch (species) {
                     case "Lion":
@@ -36,24 +38,20 @@ Animal.prototype = {
                     case "Zombeaver":
                         offspring = "1 Zombeaver/Human hybrid";
                         break;
-                        default:
+                    default:
                         offspring = "No Offspring";
                 }
+            } else {
+                offspring = "No offspring";
             }
-           else if (randomNumber === false) {
-             offspring = "No offspring";
-           }
-           else {
-             offspring = "No offspring";
-           }
-           return offspring;
-        }
 
+        }
+        return offspring;
     },
 
     toString: function() {
-       var makeString = "A " + this.age + " years old " + this.sex + " " + this.species + " with " + this.offspring + ".";
-       return makeString;
+        var makeString = "A " + this.age + " years old " + this.sex + " " + this.species + " with " + this.offspring + ".";
+        return makeString;
     },
 
 };
