@@ -22,6 +22,7 @@ Animal.prototype = {
         }
         return ability;
     },
+    //If female, randomly picks if she has offspring.
     makeOffspring: function(sex, species) {
         var randomNumber = Math.random() >= 0.5;
         if (sex == "male") {
@@ -56,11 +57,12 @@ Animal.prototype = {
 
 };
 
-function Animal(species, sex, age, offspring, stringMade) {
+function Animal(species, sex, birthYear, offspring, stringMade) {
     this.info = {
         species: species,
         sex: sex,
-        age: Animal.prototype.getAge(age),
+        birthYear: birthYear,
+        age: Animal.prototype.getAge(birthYear),
         ability: Animal.prototype.makeAbility(species),
         offspring: Animal.prototype.makeOffspring(sex, species),
         stringMade: Animal.prototype.toString(),
